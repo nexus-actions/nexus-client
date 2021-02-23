@@ -40,14 +40,10 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
         }
         getByName("linuxX64Main").dependencies {
-            dependencies {
-                implementation("io.ktor:ktor-client-curl:$ktorVersion")
-            }
+            implementation("io.ktor:ktor-client-curl:$ktorVersion")
         }
         getByName("macosX64Main").dependencies {
-            dependencies {
-                implementation("io.ktor:ktor-client-curl:$ktorVersion")
-            }
+            implementation("io.ktor:ktor-client-curl:$ktorVersion")
         }
     }
 }
