@@ -23,16 +23,30 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            val serializationVersion = "1.0.1"
-            val ktorVersion = "1.5.1"
+        val coroutinesVersion = "1.4.2-native-mt"
+        val serializationVersion = "1.0.1"
+        val ktorVersion = "1.5.1"
 
+        getByName("commonMain").dependencies {
+            // Coroutines
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+            // Ktor client
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-auth:$ktorVersion")
+            implementation("io.ktor:ktor-client-json:$ktorVersion")
+            implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+            // Serialization
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+        }
+        getByName("linuxX64Main").dependencies {
             dependencies {
-                implementation("io.ktor:ktor-client-core:$ktorVersion")
-                implementation("io.ktor:ktor-client-json:$ktorVersion")
-                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                implementation("io.ktor:ktor-client-curl:$ktorVersion")
+            }
+        }
+        getByName("macosX64Main").dependencies {
+            dependencies {
+                implementation("io.ktor:ktor-client-curl:$ktorVersion")
             }
         }
     }
