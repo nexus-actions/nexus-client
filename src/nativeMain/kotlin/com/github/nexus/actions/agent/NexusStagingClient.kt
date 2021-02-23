@@ -18,7 +18,7 @@ import io.ktor.client.request.*
  * @param username: your Nexus username. For OSSRH, this is your Sonatype jira username
  * @param password: your Nexus password. For OSSRH, this is your Sonatype jira password
  */
-class NexusStagingClient(
+public class NexusStagingClient(
   private val baseUrl: String = "https://oss.sonatype.org/service/local",
   username: String,
   password: String,
@@ -41,7 +41,7 @@ class NexusStagingClient(
   /**
    * Return a list of all staging repositories
    */
-  suspend fun getProfiles(): List<Profile> {
+  public suspend fun getProfiles(): List<Profile> {
     return httpClient.get<Data<Profile>>("$baseUrl/staging/profiles").data
   }
 }

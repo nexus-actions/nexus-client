@@ -1,2 +1,2 @@
-rootProject.name = "nexus-agent"
+rootProject.name = "nexus-client"
 
