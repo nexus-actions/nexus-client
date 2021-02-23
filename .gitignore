@@ -1,0 +1,26 @@
+# INTELLIJ
+.idea/
+*.ipr
+*.iml
+
+# SYSTEM FILES
+*~
+.DS_STORE
+
+# GRADLE
+.gradle
+build/
+out/
+!dokka/out/
+.gradletasknamecache
+*local.properties
+
+# JS
+node_modules/
+package-lock.json
+
+# Native
+.externalNativeBuild/
+*.a
+*.o
+*.so
