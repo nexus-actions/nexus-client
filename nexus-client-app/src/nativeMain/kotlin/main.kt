@@ -3,8 +3,14 @@ import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
 
 public fun main(args: Array<String>): Unit = runBlocking {
-    require(args.size == 2)
-    println(NexusStagingClient(username = args[0],  password = args[1]).getProfiles())
+    try {
+        require(args.size == 2)
+        println(NexusStagingClient(username = args[0],  password = args[1]).getProfiles())
+    } catch (t: Throwable) {
+        println(t)
+        exitProcess(1)
+    }
+
     /*
      * Prevent process exit(1) (caused by the coroutine context cancellation?)
      *
