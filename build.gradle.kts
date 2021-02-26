@@ -5,6 +5,6 @@ plugins {
 }
 
 allprojects {
-    group = "con.github.nexus.actions"
+    group = "com.github.nexus-actions.client"
     version = "1.0.0-SNAPSHOT"
 }
